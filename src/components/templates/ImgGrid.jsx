@@ -55,7 +55,7 @@ export const ImgGrid = ({ resultsOfSearch, search }) => {
                                     download 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    href={hit.links.download}
+                                    href={hit.links.download + '?force=true'}
                                     >
                                     Download
                                 </a>
