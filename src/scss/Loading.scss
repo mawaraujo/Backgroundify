@@ -1,0 +1,22 @@
+.loading .loading_circle {
+    border: 3px solid black; border-bottom: 3px solid transparent;
+    border-radius: 100%;
+    width: 70px; height: 70px;
+    margin: auto;
+    animation: loadinganimation 1s linear infinite;
+}
+
+@keyframes loadinganimation {
+    0%{
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(360deg);
+    }
+}
