@@ -65,30 +65,21 @@ header {
     }
 
     .brand a { font-weight: bold; }
+    .theme { cursor: pointer; }
 }
 
 .light-bg header {
-    .menu_button .bar {
-        background: black;
-    }
-
-    .navbar a {
-        color: black;
-    }
-
+    .menu_button .bar { background: black; }
+    .navbar a { color: black; }
     .brand a { color: black; }
 }
 
 .dark-bg header {
-    .menu_button .bar {
-        background: white;
-    }
-
-    .navbar a {
-        color: white;
-    }
-
+    .menu_button .bar { background: white; }
+    .navbar a { color: white; }
     .brand a { color: white; }
+
+    .theme .icon_theme { filter: invert(100%)}
 }
 
 .m-top-header { margin-top: 3.5rem; }

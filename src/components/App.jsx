@@ -5,16 +5,36 @@ import '../css/style.css'
 //Templates
 import { Header } from './templates/Header'
 import { ImgGrid } from './templates/ImgGrid'
-import { ClearUI } from './templates/ClearUI'
+import { ClearUI } from './fragments/ClearUI'
 import { Navigator } from './templates/Navigator'
 
-function App() {
+function App() {  
+  //Theme switch
+  const body = document.body
+  const themeOnStorage = localStorage.getItem('theme')
+  const [theme, setTheme] = useState(themeOnStorage)
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme)
+
+    if(theme === 'light') {
+      body.classList.add('light-bg')
+      body.classList.remove('dark-bg')
+    }else {
+      body.classList.remove('light-bg')
+      body.classList.add('dark-bg')
+    }
+
+    console.log(`${theme} theme`)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [theme])
+
   const [search, setSearch] = useState('')
   const [resultsOfSearch, setResultsOfSearch] = useState([])
 
   //Paginator
   const [actualPage, setActualPage ] = useState(1)
-  const [ totalPages, setTotalPages ] = useState(1)
+  const [totalPages, setTotalPages] = useState(1)
 
   useEffect(() => {
     const handleSearch = async () => {
@@ -64,7 +84,7 @@ function App() {
 
   return (
     <Fragment>
-      <Header setSearch={setSearch} />
+      <Header setSearch={setSearch} theme={theme} setTheme={setTheme} />
 
       <div id="up" className="app" onClick={handleCloseNav} >
 

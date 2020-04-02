@@ -1,9 +1,19 @@
 .loading .loading_circle {
-    border: 3px solid black; border-bottom: 3px solid transparent;
+    border: 3px solid transparent; border-bottom: 3px solid transparent;
     border-radius: 100%;
     width: 70px; height: 70px;
     margin: auto;
     animation: loadinganimation 1s linear infinite;
+}
+
+.light-bg .loading .loading_circle {
+    border-color: black;
+    border-bottom-color: transparent;
+}
+
+.dark-bg .loading .loading_circle {
+    border-color: white;
+    border-bottom-color: transparent;
 }
 
 @keyframes loadinganimation {

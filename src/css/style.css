@@ -119,6 +119,10 @@
   filter: invert(100%);
 }
 
+#alert_download p {
+  font-size: 1.2rem;
+}
+
 header {
   height: 3.5rem;
   line-height: 3.5rem;
@@ -180,6 +184,9 @@ header .navbar .credit p a {
 header .brand a {
   font-weight: bold;
 }
+header .theme {
+  cursor: pointer;
+}
 
 .light-bg header .menu_button .bar {
   background: black;
@@ -199,6 +206,9 @@ header .brand a {
 }
 .dark-bg header .brand a {
   color: white;
+}
+.dark-bg header .theme .icon_theme {
+  filter: invert(100%);
 }
 
 .m-top-header {
@@ -272,13 +282,23 @@ header .brand a {
   }
 }
 .loading .loading_circle {
-  border: 3px solid black;
+  border: 3px solid transparent;
   border-bottom: 3px solid transparent;
   border-radius: 100%;
   width: 70px;
   height: 70px;
   margin: auto;
   animation: loadinganimation 1s linear infinite;
+}
+
+.light-bg .loading .loading_circle {
+  border-color: black;
+  border-bottom-color: transparent;
+}
+
+.dark-bg .loading .loading_circle {
+  border-color: white;
+  border-bottom-color: transparent;
 }
 
 @keyframes loadinganimation {

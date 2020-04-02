@@ -1,21 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { IsDownloaded } from '../fragments/IsDownloaded'
 import UnsplashLogo from '../../img/unsplash_logo.svg'
- 
+  
 export const ImgGrid = ({ resultsOfSearch, search }) => {
 
     let results
     if(resultsOfSearch.results) results = resultsOfSearch.results
     else results = resultsOfSearch
 
+    const [download, setDownload ] = useState(false)
+
+    useEffect(() =>{
+        setTimeout(() => {
+            setDownload(false)
+        }, 10000);
+    },[download])
+
     return(
         <div className="container-fluid pt-5 m-top-header">
             <div className="row">
 
-                <div className="col-12 text-center">
+                { download && <IsDownloaded /> }
+
+                <div className="col-12 my-3">
                    { search === ''
-                       ? null
-                       : <p className="h6 my-3 border rounded-pill px-4 py-3 ">
-                           {resultsOfSearch.total} results of "{search}" </p> 
+                       ?    <h1 className="h3 text-start mb-2">Lastest wallpapers</h1>
+                       :    <p className="h6 border rounded-pill px-4 py-3 text-center">
+                                {resultsOfSearch.total} results of "{search}" 
+                            </p> 
                     }
                 </div>
 
@@ -26,7 +38,7 @@ export const ImgGrid = ({ resultsOfSearch, search }) => {
 
                             <div className="card-img">
                                 <img className="" 
-                                    src={hit.urls.small} 
+                                    src={hit.urls.regular} 
                                     alt={hit.alt_description} 
                                     width="100%" 
                                 />
@@ -52,8 +64,8 @@ export const ImgGrid = ({ resultsOfSearch, search }) => {
 
                             <div className="download-link border px-4 py-1 border rounded-pill">
                                 <a 
-                                    download 
-                                    target="_blank" 
+                                    download
+                                    onClick={() => setDownload(true)} 
                                     rel="noopener noreferrer"
                                     href={hit.links.download + '?force=true'}
                                     >

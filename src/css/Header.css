@@ -59,6 +59,9 @@ header .navbar .credit p a {
 header .brand a {
   font-weight: bold;
 }
+header .theme {
+  cursor: pointer;
+}
 
 .light-bg header .menu_button .bar {
   background: black;
@@ -78,6 +81,9 @@ header .brand a {
 }
 .dark-bg header .brand a {
   color: white;
+}
+.dark-bg header .theme .icon_theme {
+  filter: invert(100%);
 }
 
 .m-top-header {
