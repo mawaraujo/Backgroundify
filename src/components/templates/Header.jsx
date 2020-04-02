@@ -47,9 +47,9 @@ export const Header = ({setSearch, theme, setTheme}) => {
                 <a target="_blank" rel="noopener noreferrer" href="mailto:mauuroaraujo@gmail.com">Contact</a>
 
                 <div className="social d-flex flex-column mt-3">
-                    <a className="btn btn-primary rounded-pill" target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/mawaraujo">Linkedin</a>
-                    <a className="btn btn-dark rounded-pill" target="_blank" rel="noopener noreferrer" href="http://github.com/mawaraujo/">Github</a>
-                    <a className="btn btn-danger rounded-pill" target="_blank" rel="noopener noreferrer" href="https://portfolio-maw.firebaseapp.com/">Portfolio</a>
+                    <a className="btn btn-primary rounded-pill w-100" target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/mawaraujo">Linkedin</a>
+                    <a className="btn btn-dark rounded-pill w-100" target="_blank" rel="noopener noreferrer" href="http://github.com/mawaraujo/">Github</a>
+                    <a className="btn btn-danger rounded-pill w-100" target="_blank" rel="noopener noreferrer" href="https://portfolio-maw.firebaseapp.com/">Portfolio</a>
                 </div>
 
                 <div className="theme mx-3 mt-3 py-1 px-2 rounded-pill border" onClick={handleTheme}>

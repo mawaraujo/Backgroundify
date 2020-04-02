@@ -17,21 +17,21 @@ export const ImgGrid = ({ resultsOfSearch, search }) => {
     },[download])
 
     return(
-        <div className="container-fluid pt-5 m-top-header">
+        <div className="container-fluid m-top-header pt-5">
             <div className="row">
 
                 { download && <IsDownloaded /> }
 
-                <div className="col-12 my-3">
+                <div className="col-12 my-3 px-4">
                    { search === ''
-                       ?    <h1 className="h3 text-start mb-2">Lastest wallpapers</h1>
-                       :    <p className="h6 border rounded-pill px-4 py-3 text-center">
-                                {resultsOfSearch.total} results of "{search}" 
+                       ?    <h1 className="h3 mb-2">Lastest wallpapers</h1>
+                       :    <p className="h3 mb-2">
+                                Results of "{search}"
                             </p> 
                     }
                 </div>
 
-                <div className="col-12 grid">
+                <div className="col-12 px-4 grid">
 
                     { results.map(hit => (
                         <div className="grid-item rounded-lg" key={hit.id}>

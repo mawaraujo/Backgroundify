@@ -5,8 +5,10 @@ import '../css/style.css'
 //Templates
 import { Header } from './templates/Header'
 import { ImgGrid } from './templates/ImgGrid'
-import { ClearUI } from './fragments/ClearUI'
 import { Navigator } from './templates/Navigator'
+
+//Fragments
+import { ClearUI } from './fragments/ClearUI'
 
 function App() {  
   //Theme switch
@@ -87,7 +89,6 @@ function App() {
       <Header setSearch={setSearch} theme={theme} setTheme={setTheme} />
 
       <div id="up" className="app" onClick={handleCloseNav} >
-
         { resultsOfSearch.length === 0
           ? <ClearUI />
           : <ImgGrid 

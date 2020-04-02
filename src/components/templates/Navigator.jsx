@@ -12,7 +12,7 @@ export const Navigator = ({actualPage, totalPages, oldPage, nextPage }) => {
                             type="button" 
                             className="btn btn-dark px-5 rounded-pill mr-2" 
                             onClick={oldPage} >
-                            Back  
+                            Previous page 
                         </button> }
                 
                     { actualPage === totalPages
@@ -22,7 +22,7 @@ export const Navigator = ({actualPage, totalPages, oldPage, nextPage }) => {
                             type="button" 
                             className="btn btn-dark px-5 rounded-pill " 
                             onClick={nextPage} >
-                            Next
+                            Next page
                         </button> }
                 </div>
             </div>

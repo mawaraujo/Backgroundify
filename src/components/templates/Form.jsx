@@ -15,7 +15,6 @@ export const Form = ({ setSearch }) => {
 
         // setError(false)
         setSearch(termino)
-        
     }
 
     return(
