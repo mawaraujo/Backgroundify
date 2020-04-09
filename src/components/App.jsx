@@ -11,23 +11,44 @@ import { Navigator } from './templates/Navigator'
 import { ClearUI } from './fragments/ClearUI'
 
 function App() {  
+
   //Theme switch
   const body = document.body
   const themeOnStorage = localStorage.getItem('theme')
-  const [theme, setTheme] = useState(themeOnStorage)
+  const themeColorOnStorage = localStorage.getItem('color')
+  const [theme, setTheme] = useState({themeColorOnStorage, themeOnStorage})
+  const [changeTheme, setChangeTheme ] = useState(false) 
+  const colors = ["c1089ff", "c692db7", "ce44985", "cffb6b9"]
 
   useEffect(() => {
-    localStorage.setItem('theme', theme)
+    if(changeTheme === true) {
+      localStorage.setItem('theme', theme.background)
+      localStorage.setItem('color', theme.color)
 
-    if(theme === 'light') {
-      body.classList.add('light-bg')
-      body.classList.remove('dark-bg')
+      //Remove color class
+      body.classList.forEach(b => {
+        colors.filter(color => color === b)
+        .map(del => { body.classList.remove(del) })
+      })
+
+      body.classList.remove('undefined')
+      body.classList.remove('null')
+
+      if(theme.background === 'light-bg') {      
+        body.classList.add('light-bg', theme.color)
+        body.classList.remove('dark-bg')
+      }else {
+        body.classList.add('dark-bg', theme.color)
+        body.classList.remove('light-bg')
+      }
     }else {
-      body.classList.remove('light-bg')
-      body.classList.add('dark-bg')
+      if(theme.themeOnStorage === 'dark-bg') body.classList.remove('light-bg')
+      else body.classList.remove('dark-bg')
+
+      body.classList.add(theme.themeColorOnStorage)
+      body.classList.add(theme.themeOnStorage)
     }
 
-    console.log(`${theme} theme`)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme])
 
@@ -86,7 +107,7 @@ function App() {
 
   return (
     <Fragment>
-      <Header setSearch={setSearch} theme={theme} setTheme={setTheme} />
+      <Header setSearch={setSearch} theme={theme} setTheme={setTheme} setChangeTheme={setChangeTheme} />
 
       <div id="up" className="app" onClick={handleCloseNav} >
         { resultsOfSearch.length === 0

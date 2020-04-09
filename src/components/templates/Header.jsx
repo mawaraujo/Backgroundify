@@ -1,9 +1,7 @@
 import React from 'react'
 import { Form } from './Form'
-import Sun from '../../img/Sun-64.png'
-import Moon from '../../img/Moon-64.png'
 
-export const Header = ({setSearch, theme, setTheme}) => {
+export const Header = ({setSearch, theme, setTheme, setChangeTheme}) => {
 
     //Close and open menu
     const handleMenu = () => {
@@ -12,9 +10,12 @@ export const Header = ({setSearch, theme, setTheme}) => {
         else header.classList.add('active')
     }
 
-    const handleTheme = () => {
-        if(theme === 'light') setTheme('dark')
-        else setTheme('light')
+    const handleTheme = (background, color) => {
+        const settings = {background, color}
+        const body = document.body
+
+        setTheme(settings)
+        setChangeTheme(true)
     }
     
     return(
@@ -52,18 +53,13 @@ export const Header = ({setSearch, theme, setTheme}) => {
                     <a className="btn btn-danger rounded-pill w-100" target="_blank" rel="noopener noreferrer" href="https://portfolio-maw.firebaseapp.com/">Portfolio</a>
                 </div>
 
-                <div className="theme mx-3 mt-3 py-1 px-2 rounded-pill border" onClick={handleTheme}>
-                    <span className="my-auto mr-3 icon_theme">
-                        {
-                            theme === 'light'
-                            ? <img src={Moon} width="15" />
-                            : <img src={Sun} width="15" />
-                        }
-                    </span>
-
-                    <span className="toggle_theme">
-                        { theme === 'light' ? 'Dark theme' : 'Light theme' }
-                    </span>
+                <div className="theme mx-3 mt-3 py-1 px-2 rounded-pill d-flex">
+                    <span className="white mr-2" onClick={() => handleTheme("light-bg", null)}></span>   {/* Light */}
+                    <span className="dark mr-2" onClick={() => handleTheme("dark-bg", null)}></span>   {/* Dark */}
+                    <span className="c1089ff mr-2" onClick={() => handleTheme("dark-bg", "c1089ff")}></span>   {/* Blue */}
+                    <span className="c692db7 mr-2" onClick={() => handleTheme("dark-bg", "c692db7")}></span>   {/* Violet */}
+                    <span className="ce44985 mr-2" onClick={() => handleTheme("dark-bg", "ce44985")}></span>   {/* Dark pink */}
+                    <span className="cffb6b9" onClick={() => handleTheme("light-bg", "cffb6b9")}></span>   {/*Light pink */}
                 </div>
 
                 <div className="hr my-4">

@@ -1,0 +1,102 @@
+.dark-bg.c1089ff {
+    background-color: #23374d !important;
+
+    p { color: white }
+    span { color: white}
+    nav .border{ border-color: white; }
+
+    form input {
+        background: #0e7ae6; border-color: transparent; 
+        &:hover { background-color: #0a70d6; border-color: transparent; }
+    }
+
+    .btn-dark { 
+        background: #0e7ae6; border-color: transparent; 
+        &:hover { background-color: #0a70d6; }
+    }
+
+    .card-bg { background-color: #1089ff !important; }
+}
+
+.dark-bg.c692db7 {
+    background-color: #692db7 !important;
+
+    p { color: white }
+    span { color: white}
+    nav .border{ border-color: white; }
+
+    form input {
+        background: #734ee4; border-color: transparent; 
+        &:hover { background-color: #6946d1; border-color: transparent; }
+        &::placeholder { color: rgba(255, 255, 255, 0.363); }
+    }
+
+    .btn-dark { 
+        background: #734ee4; border-color: transparent; 
+        &:hover { background-color: #6946d1; }
+    }
+
+    .card-bg { background-color: #8158fc !important; }
+}
+
+.dark-bg.ce44985 {
+    background-color: #bd245f !important;
+
+    p { color: white }
+    span { color: white}
+    nav .border{ border-color: white; }
+
+    form input {
+        background: #ca4075; color: white; border-color: transparent; 
+        &:hover { background-color: #b13765; border-color: transparent; }
+    }
+
+    .btn-dark { 
+        background: #ca4075; border-color: transparent; 
+        &:hover { background-color: #b13765; }
+    }
+
+    .card-bg { background-color: #e44985 !important; }
+}
+
+.light-bg.cffb6b9 {
+    background-color: #fae3d9 !important;
+
+    p { color: black }
+    span { color: black}
+    nav .border{ border-color: black; }
+    nav .btn-dark { background: black; &:hover{ background: black; } }
+
+    form input {
+        background: #eba7a9; color: black; border-color: transparent; 
+        &:hover { background-color:#dfa0a2; border-color: transparent; }
+        &::placeholder { color: rgb(0, 0, 0);}
+    }
+
+    .btn-dark { 
+        background: #eba7a9; border-color: transparent; color: black;
+        &:hover { background-color: #d49597; }
+    }
+
+    .card-bg { background-color: #ffb6b9 !important; }
+}
+
+//Span list
+nav .theme span {
+    display: block;
+    width: 35px; height: 35px;
+    border-radius: 100%;
+    background-color: black;
+    margin: auto;
+    cursor: pointer;
+
+    &.white { background: white }
+    &.black { background: black }
+    &.c1089ff { background: #1089ff }
+    &.c692db7 { background: #692db7 }
+    &.ce44985 { background: #e44985 }
+    &.cffb6b9 { background: #ffb6b9 }
+}
+
+.light-bg .theme span { border: 1px solid rgba(0, 0, 0, 0.13); }
+.dark-bg .theme span { border: 1px solid rgba(255, 255, 255, 0.233); }
