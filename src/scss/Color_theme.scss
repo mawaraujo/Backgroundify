@@ -1,21 +1,22 @@
-.dark-bg.c1089ff {
-    background-color: #23374d !important;
+.light-bg.cf6da63 {
+    background-color: #e9d060 !important;
 
-    p { color: white }
-    span { color: white}
-    nav .border{ border-color: white; }
+    p { color: black }
+    span { color: black }
+    nav hr{ border-color: rgba(0, 0, 0, 0.144); }
 
     form input {
-        background: #0e7ae6; border-color: transparent; 
-        &:hover { background-color: #0a70d6; border-color: transparent; }
+        background: none; border-color: rgba(0, 0, 0, 0.432);
+        &:hover { background-color: none; border-color: black;}
+        &::placeholder { color: black; }
     }
 
     .btn-dark { 
-        background: #0e7ae6; border-color: transparent; 
-        &:hover { background-color: #0a70d6; }
+        background: #000000; border-color: transparent; 
+        &:hover { background-color: black; }
     }
 
-    .card-bg { background-color: #1089ff !important; }
+    .card-bg { background-color: #f6da63 !important; }
 }
 
 .dark-bg.c692db7 {
@@ -23,6 +24,7 @@
 
     p { color: white }
     span { color: white}
+    nav .btn-dark { background: black; &:hover{ background: black; } }
     nav .border{ border-color: white; }
 
     form input {
@@ -45,6 +47,7 @@
     p { color: white }
     span { color: white}
     nav .border{ border-color: white; }
+    nav .btn-dark { background: black; &:hover{ background: black; } }
 
     form input {
         background: #ca4075; color: white; border-color: transparent; 
@@ -59,8 +62,8 @@
     .card-bg { background-color: #e44985 !important; }
 }
 
-.light-bg.cffb6b9 {
-    background-color: #fae3d9 !important;
+.light-bg.cb0e0a8 {
+    background-color: #9acc92 !important;
 
     p { color: black }
     span { color: black}
@@ -68,17 +71,17 @@
     nav .btn-dark { background: black; &:hover{ background: black; } }
 
     form input {
-        background: #eba7a9; color: black; border-color: transparent; 
-        &:hover { background-color:#dfa0a2; border-color: transparent; }
+        background: none; color: black; border-color: rgba(0, 0, 0, 0.459); 
+        &:hover { background-color:none; border-color: black; }
         &::placeholder { color: rgb(0, 0, 0);}
     }
 
     .btn-dark { 
-        background: #eba7a9; border-color: transparent; color: black;
-        &:hover { background-color: #d49597; }
+        background: #000000; border-color: transparent;
+        &:hover { background-color: #000000; }
     }
 
-    .card-bg { background-color: #ffb6b9 !important; }
+    .card-bg { background-color: #b0e0a8 !important; }
 }
 
 //Span list
@@ -92,10 +95,10 @@ nav .theme span {
 
     &.white { background: white }
     &.black { background: black }
-    &.c1089ff { background: #1089ff }
+    &.cf6da63 { background: #f6da63 }
     &.c692db7 { background: #692db7 }
     &.ce44985 { background: #e44985 }
-    &.cffb6b9 { background: #ffb6b9 }
+    &.cb0e0a8 { background: #b0e0a8 }
 }
 
 .light-bg .theme span { border: 1px solid rgba(0, 0, 0, 0.13); }

@@ -1,6 +1,21 @@
 import React from 'react'
 
-export const Navigator = ({actualPage, totalPages, oldPage, nextPage }) => {
+export const Navigator = ({actualPage, totalPages, setActualPage}) => {
+  
+    //Define old page
+    const oldPage = () => {
+        const nuevaPaginaActual = actualPage - 1
+        if(nuevaPaginaActual === 0) return;
+        setActualPage(nuevaPaginaActual)
+    }
+
+    //Define next page
+    const nextPage = () => {
+        const nuevaPaginaActual = actualPage + 1
+        if(nuevaPaginaActual > totalPages) return;
+        setActualPage(nuevaPaginaActual)
+    }
+
     return(
         <div className="container-fluid my-5 pb-5 text-center">
             <div className="row">

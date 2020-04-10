@@ -20,7 +20,7 @@ export const Form = ({ setSearch }) => {
     return(
     <form 
         id="form-search" 
-        className="form_search card-bg mr-2" 
+        className="form_search card-bg text-center py-2 px-3 d-flex" 
         onSubmit={handleSearch}>
 
             <input 

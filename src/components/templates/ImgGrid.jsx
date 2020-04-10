@@ -17,7 +17,7 @@ export const ImgGrid = ({ resultsOfSearch, search }) => {
     },[download])
 
     return(
-        <div className="container-fluid m-top-header pt-5">
+        <div className="container-fluid mt-5 pt-5">
             <div className="row">
 
                 { download && <IsDownloaded /> }

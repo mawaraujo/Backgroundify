@@ -81,13 +81,14 @@ header {
     .theme .icon_theme { filter: invert(100%)}
 }
 
+.search_item { cursor: pointer }
+
 .m-top-header { margin-top: 3.5rem; }
 
 @media(max-width:768px) {
     header {
         height: 3rem;
         line-height: 3rem;
-        flex-direction: column;
     }
 
     .m-top-header { margin-top: 5rem; }
