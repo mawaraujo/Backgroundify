@@ -9,30 +9,24 @@ import { Navigator } from './templates/Navigator'
 
 //Fragments
 import { ClearUI } from './fragments/ClearUI'
+import { UpButton } from './fragments/UpButton'
 
 function App() {  
   //Theme switch
   const themeOnStorage = localStorage.getItem('theme')
   const themeColorOnStorage = localStorage.getItem('color')
-
   const [theme, setTheme] = useState({themeColorOnStorage, themeOnStorage})
-  const [isChangeTheme, setIsChangeTheme ] = useState(false) 
+  const [isChangeTheme, setIsChangeTheme ] = useState(false)
 
   useEffect(() => {
     const body = document.body
-    const colors = ["cf6da63", "c692db7", "ce44985", "cb0e0a8"]
     
+    //Si el usuario cambia de tema
     if(isChangeTheme) {
       localStorage.setItem('theme', theme.background)
       localStorage.setItem('color', theme.color)
 
-      //Remove color class
-      body.classList.forEach(b => {
-        colors.filter(color => color === b)
-        .map(del => body.classList.remove(del))
-      })
-
-      body.classList.remove('undefined', 'null')
+      body.removeAttribute('class')
 
       if(theme.background === 'light-bg') {      
         body.classList.add('light-bg', theme.color)
@@ -41,7 +35,10 @@ function App() {
         body.classList.add('dark-bg', theme.color)
         body.classList.remove('light-bg')
       }
+
+      setIsChangeTheme(false)
       
+      //Si se recarga la pagina, se aplican los cambios del body con el localStorage
     } else {
 
       if(theme.themeOnStorage === 'dark-bg') body.classList.remove('light-bg')
@@ -60,6 +57,7 @@ function App() {
   const [resultsOfSearch, setResultsOfSearch] = useState([])
   const [actualPage, setActualPage ] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
+  const [isLoading, setIsLoading ] = useState(true)
 
   useEffect(() => {
     const handleSearch = async () => {
@@ -71,12 +69,19 @@ function App() {
       else URL = `https://api.unsplash.com/search/photos?page=${actualPage}&query=${search}&client_id=${key}&per_page=${elementsByPagination}&orientation=portrait`
       
       const response = await fetch(URL)
-      const result = await response.json()
-      setResultsOfSearch(result)
-      
-      //Calcular total paginas (Ceil redondea)
-      const calcPages = Math.ceil(result.total / elementsByPagination)
-      setTotalPages(calcPages)
+
+      if(response.ok) {
+        const result = await response.json()
+        setResultsOfSearch(result)
+
+        //Eliminamos pantalla de carga
+        setIsLoading(false)
+
+        //Calcular total paginas (Ceil redondea)
+        const calcPages = Math.ceil(result.total / elementsByPagination)
+        setTotalPages(calcPages)
+
+      }else setIsLoading(true)
     }
 
     //Volver arriba
@@ -95,23 +100,22 @@ function App() {
         setSearch={setSearch} 
         theme={theme} 
         setTheme={setTheme} 
-        setChangeTheme={setIsChangeTheme} 
+        setChangeTheme={setIsChangeTheme}
       />
 
       <div id="up" className="app" onClick={handleCloseNav} >
-        { resultsOfSearch.length === 0
+        { isLoading
           ? <ClearUI />
-          : <ImgGrid 
-            resultsOfSearch={resultsOfSearch} 
-            search={search} />
+          : <>
+              <ImgGrid 
+                resultsOfSearch={resultsOfSearch} 
+                search={search} />
+              <Navigator
+                actualPage={ actualPage } 
+                totalPages={ totalPages }
+                setActualPage={ setActualPage } />
+            </>
         }
-
-        <Navigator
-          actualPage={ actualPage } 
-          totalPages={ totalPages }
-          setActualPage={ setActualPage } 
-        />
-
       </div>
     </Fragment>
   )

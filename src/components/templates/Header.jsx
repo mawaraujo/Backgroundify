@@ -19,7 +19,6 @@ export const Header = ({setSearch, setTheme, setChangeTheme}) => {
 
     const handleTheme = (background, color) => {
         const settings = {background, color}
-
         setTheme(settings)
         setChangeTheme(true)
     }
@@ -57,14 +56,14 @@ export const Header = ({setSearch, setTheme, setChangeTheme}) => {
                     </div>
 
                     <div className="mt-2">
-                        <p class="">Theme color</p>
+                        <p className="">Theme color</p>
                     </div>
 
                     <div className="theme mx-3 mt-1 py-1 px-2 rounded-pill d-flex">
                         <span className="white mr-2" onClick={() => handleTheme("light-bg", null)}></span>   {/* Light */}
                         <span className="dark mr-2" onClick={() => handleTheme("dark-bg", null)}></span>   {/* Dark */}
                         <span className="cf6da63 mr-2" onClick={() => handleTheme("light-bg", "cf6da63")}></span>   {/* Light yellow */}
-                        <span className="cb0e0a8" onClick={() => handleTheme("light-bg", "cb0e0a8")}></span>   {/*Light pink */}
+                        <span className="cb0e0a8 mr-2" onClick={() => handleTheme("light-bg", "cb0e0a8")}></span>   {/*Light pink */}
                         <span className="c692db7 mr-2" onClick={() => handleTheme("dark-bg", "c692db7")}></span>   {/* Dark Violet */}
                         <span className="ce44985 mr-2" onClick={() => handleTheme("dark-bg", "ce44985")}></span>   {/* Dark pink */}
                         

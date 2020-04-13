@@ -38,10 +38,16 @@ export const ImgGrid = ({ resultsOfSearch, search }) => {
 
                             <div className="card-img">
                                 <img className="" 
+                                    lazy="loading"
                                     src={hit.urls.regular} 
                                     alt={hit.alt_description} 
                                     width="100%" 
                                 />
+                            </div>
+
+                            <div className="shadow d-flex flex-column">
+                                <span className="shadow-top"></span>
+                                <span className="shadow-bottom"></span>
                             </div>
 
                             <div className="creator d-flex px-1 py-1">
