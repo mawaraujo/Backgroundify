@@ -1,5 +1,6 @@
 * { 
     font-family: 'Open Sans', sans-serif !important;
+    scroll-behavior: smooth;
 }
 
 @keyframes aparecer {
@@ -30,20 +31,17 @@
     width: 100%;
     height: 100%;
     position: relative;
-    background: rgb(47, 47, 47);
+    background: rgba(46, 46, 46, 0.212);
     overflow: hidden;
     transition: .3s all;
     
-    &:hover > .card-img { opacity: 0.4; }
+    &:hover > .shadow { opacity: 1; }
     &:hover > .creator { opacity: 1; }
     &:hover .download-link { display: block; }
     &:hover .credits { display: block; }
     & .card-img { height: 100%; }
 
-    & img {
-        width: 100%; height: 100%;
-        object-fit: cover;
-    }
+    & img { width: 100%; height: 100%; object-fit: cover }
 }
 
 .creator {
@@ -73,6 +71,29 @@
     }
 }
 
+.shadow {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    opacity: 0;
+    transition: .5s all;
+
+    .shadow-top {
+        -webkit-box-shadow: inset -6px 92px 58px -53px rgba(0,0,0,0.53);
+        -moz-box-shadow: inset -6px 92px 58px -53px rgba(0,0,0,0.53);
+        box-shadow: inset -6px 92px 58px -53px rgba(0,0,0,0.53);
+        flex: 1 1;
+    }
+
+    .shadow-bottom {
+        -webkit-box-shadow: inset -6px -150px 49px -87px rgba(0,0,0,0.53);
+        -moz-box-shadow: inset -6px -150px 49px -87px rgba(0,0,0,0.53);
+        box-shadow: inset -6px -150px 49px -87px rgba(0,0,0,0.53);
+        flex: 1 1;
+    }
+}
+
 .download-link {
     position: absolute;
     bottom: 0;
@@ -99,16 +120,29 @@
     margin: 0 1rem 1rem 0;
     display: none;
 
-    &.invert {
-        filter: invert(100%);
+    &.invert { filter: invert(100%); }
+}
+
+#alert_download p { font-size: 1.2rem; }
+
+.upButton {
+    display: block;
+    position: fixed;
+    top: 4rem; left: 0;
+    cursor: pointer;
+    transition: .3s ease;
+    width: 100%;
+    height: 50px;
+
+    img {
+        opacity: 0.7;
+        &:hover { opacity: 1; }
     }
 }
 
-#alert_download p {
-    font-size: 1.2rem;
-}
+.dark-bg .upButton { color: white;  img{filter:invert(100%)} }
 
 @import "Header";
 @import "Form";
 @import "Loading";
-@import "Color_theme"
+@import "Color_theme";
